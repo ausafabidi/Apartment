@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Notice in detail
+{% endblock %}
+
+    text-align: center;
+
+
+{% block main %}
+        <h2>Notice in detail</h2>
+    <br>
+      {% for row in rows %}
+        <p class="text-left">
+          Posted by : {{ row.name }}
+        </p>
+        <p class="text-left">
+          Submitted on : {{ row.datetime }}
+        </p>
+        <p class="text-left font-weight-bold">
+          Subject : {{ row.subject }}
+        </p>
+        <p class="text-left">
+          Status : {{ row.status }}
+        </p>
+        <p class="text-left">
+          Comment: {{ row.notice }}
+        </p>
+        <br>
+      {% endfor %}
+    <form action="/notices">
+        <button class="btn btn-primary btn-lg" type="submit">Go back</button>
+    </form>
+
+{% endblock %}

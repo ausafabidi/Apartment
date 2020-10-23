@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Suggestions / Complaint detail
+{% endblock %}
+
+    text-align: center;
+
+
+{% block main %}
+        <h2>Suggestion / Complaint detail</h2>
+    <br>
+      {% for row in rows %}
+        <p class="text-left">
+          Flat No : {{ row.flat }}
+        </p>
+        <p class="text-left">
+          Submitted on : {{ row.datetime }}
+        </p>
+        <p class="text-left font-weight-bold">
+          Subject : {{ row.subject }}
+        </p>
+        <p class="text-left">
+          Status : {{ row.status }}
+        </p>
+        <p class="text-left">
+          Comment: {{ row.feedback }}
+        </p>
+        <div class="form-group">
+            <textarea class="form-control form-control-lg" "text-left" style="min-width: 80%" rows="3" name="comment" type="text">Closing comments</textarea>
+        </div>
+        <br>
+    <form action="/feedback_close" method="POST" id="{{ row.datetime }}"></form>
+    <button class="btn btn-primary btn" type="submit" form="{{ row.datetime }}" name=name value="{{ row.datetime }}">Close</button>
+    <div class="btn btn-default btn-block" >
+        <form action="/feedback">
+        <button class="btn btn-secondary btn" type="submit">Cancel</button>
+    </form>
+    </div>
+      {% endfor %}
+
+{% endblock %}

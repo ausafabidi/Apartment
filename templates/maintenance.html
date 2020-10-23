@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Maintenance
+{% endblock %}
+
+{% block main %}
+    <h1>Maintenance payment portal</h1>
+    <form action="/maintenance" method="post">
+        <div class="form-group">
+            <select name= month>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="Ocotber">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select name= year>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="amount" placeholder="Amount" type="text">
+        </div>
+        <div class="form-group">
+            <select name= mode>
+                <option value="Cheque">Cheque</option>
+                <option value="Bank Transfer">Bank Transfer</option>
+                <option value="Cash">Cash</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="refno" placeholder="Cheque/Ref Number" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+    <br>
+    <form action="/maintenance" method="get">
+        <button class="btn btn-secondary btn-lg" type="submit">Cancel</button>
+    </form>
+{% endblock %}

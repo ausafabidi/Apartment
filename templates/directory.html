@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+        <h1>Welcome to Our Apartments</h1>
+        <table class="table">
+          <tr>
+            <th>Flat No</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+          </tr>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.flat }}</td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.number }}</td>
+            <td>{{ row.email }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+{% endblock %}

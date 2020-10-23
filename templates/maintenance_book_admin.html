@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Payments status
+{% endblock %}
+
+{% block main %}
+        <h1>Payment status</h1>
+        <br>
+        <table class="table">
+          <tr>
+            <th>Flat No</th>
+            <th>Paid on</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Payment Mode</th>
+            <th>Cheque/Ref No.</th>
+          </tr>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.flat }}</td>
+            <td><form action="/payment_more" method="POST" id="{{ row.datetime }}"></form>
+<button class="btn btn-primary btn" type="submit" form="{{ row.datetime }}" name=name value="{{ row.datetime }}">{{ row.datetime }}</button></td>
+            <td>{{ row.month }}</td>
+            <td>{{ row.year }}</td>
+            <td>{{ inr(row.amount) }}</td>
+            <td>{{ row.status }}</td>
+            <td>{{ row.mode }}</td>
+            <td>{{ row.refno }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+{% endblock %}

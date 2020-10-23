@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Suggestions / Complaint book
+{% endblock %}
+
+{% block main %}
+        <h1>Suggestions / Complaint book</h1>
+        <br>
+        <table class="table">
+          <tr>
+            <th>Flat No</th>
+            <th>Submitted on</th>
+            <th>Subject</th>
+            <th>Status</th>
+            <th>Closed by</th>
+            <th>Closed time</th>
+          </tr>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.flat }}</td>
+            <td><form action="/feedback_more" method="POST" id="{{ row.datetime }}"></form>
+<button class="btn btn-primary btn" type="submit" form="{{ row.datetime }}" name=name value="{{ row.datetime }}">{{ row.datetime }}</button></td>
+            <td>{{ row.subject }}</td>
+            <td>{{ row.status }}</td>
+            <td>{{ row.closer }}</td>
+            <td>{{ row.closetime }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+  <div class="btn btn-default btn-block" >
+    <form action="/notices">
+        <button class="btn btn-primary btn-lg" type="submit">Notice board</button>
+    </form>
+  </div>
+  <div class="btn btn-default btn-block" >
+    <form action="/maintenance">
+        <button class="btn btn-primary btn-lg" type="submit">Maintenance</button>
+    </form>
+  </div>
+  <div class="btn btn-default btn-block" >
+    <form action="/directory">
+        <button class="btn btn-primary btn-lg" type="submit">Resident directory</button>
+    </form>
+  </div>
+  <div class="btn btn-default btn-block" >
+    <form action="/feedback">
+        <button class="btn btn-primary btn-lg" type="submit">Suggestion book</button>
+    </form>
+  </div>
+  <div class="btn btn-default btn-block" >
+    <form action="/security">
+        <button class="btn btn-primary btn-lg" type="submit">Security</button>
+    </form>
+  </div>
+  <div class="btn btn-default btn-block" >
+    <form action="/admins">
+        <button class="btn btn-primary btn-lg" type="Admins">Admins</button>
+    </form>
+  </div>
+{% endblock %}

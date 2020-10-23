@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+<div class="row justify-content-center">
+ <div class="col-sm-5">
+<form action="/notices">
+	<button class="btn btn-primary btn-lg btn-block" type="submit">Notices</button>
+</form><br>
+<form action="/maintenance">
+	<button class="btn btn-primary btn-lg btn-block" type="submit">Maintenance</button>
+</form><br>
+<form action="/feedback">
+	<button class="btn btn-primary btn-lg btn-block" type="submit">Suggestion book</button>
+</form><br>
+<form action="/directory">
+	<button class="btn btn-primary btn-lg btn-block" type="submit">Resident directory</button>
+</form><br>
+<form action="/security">
+	<button class="btn btn-primary btn-lg btn-block" type="submit">Security</button>
+</form><br>
+<form action="/admin">
+	<button class="btn btn-primary btn-lg btn-block" type="submit">Admins</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home Page
+{% endblock %}
+
+{% block main %}
+        <h1>Welcome to Our Apartments</h1>
+        <table class="table">
+          <tr>
+            <th>Stock</th>
+            <th>Company</th>
+            <th>No of shares</th>
+            <th>Price</th>
+            <th>Current value</th>
+          </tr>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.symbol }}</td>
+            <td>{{ lookup(row.symbol)['name'] }}</td>
+            <td>{{ row.shares }}</td>
+            <td>{{ usd(lookup(row.symbol)['price']) }}</td>
+            <td>{{ usd(row.shares * lookup(row.symbol)['price']) }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+        <table class="table">
+          <tr>
+            <th>Cash Balance</th>
+            <th>Grand total (shares + cash)</th>
+          </tr>
+          <tr>
+            <td>{{ cash }}</td>
+            <td>{{ grand }}</td>
+          </tr>
+        </table>
+
+
+
+{% endblock %}

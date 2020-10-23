@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Payment record
+{% endblock %}
+
+{% block main %}
+        <h1>Payment record</h1>
+        <br>
+    <form action="/payment_todo" method="post">
+        <button class="btn btn-primary btn-lg" type="submit">Make a payment?</button>
+    </form>
+    <br>
+        <table class="table">
+          <tr>
+            <th>Flat No</th>
+            <th>Paid on</th>
+            <th>Month</th>
+            <th>Year</th>
+            <th>Amount</th>
+            <th>Status</th>
+          </tr>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.flat }}</td>
+            <td>{{ row.datetime }}</td>
+            <td>{{ row.month }}</td>
+            <td>{{ row.year }}</td>
+            <td>{{ inr(row.amount) }}</td>
+            <td>{{ row.status }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+{% endblock %}

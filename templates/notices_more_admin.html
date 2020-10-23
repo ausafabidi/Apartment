@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Withdraw Notice
+{% endblock %}
+
+    text-align: center;
+
+
+{% block main %}
+        <h2>Withdraw Notice</h2>
+    <br>
+      {% for row in rows %}
+        <p class="text-left">
+          Posted by : {{ row.name }}
+        </p>
+        <p class="text-left">
+          Submitted on : {{ row.datetime }}
+        </p>
+        <p class="text-left font-weight-bold">
+          Subject : {{ row.subject }}
+        </p>
+        <p class="text-left">
+          Status : {{ row.status }}
+        </p>
+        <p class="text-left">
+          Comment: {{ row.notice }}
+        </p>
+        <br>
+    <form action="/notices_close" method="POST" id="{{ row.datetime }}"></form>
+    <button class="btn btn-primary btn" type="submit" form="{{ row.datetime }}" name=name value="{{ row.datetime }}">Withdraw</button>
+    <div class="btn btn-default btn-block" >
+        <form action="/notices">
+        <button class="btn btn-secondary btn" type="submit">Cancel</button>
+    </form>
+    </div>
+      {% endfor %}
+
+{% endblock %}

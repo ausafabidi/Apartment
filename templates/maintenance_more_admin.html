@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Payment close out
+{% endblock %}
+
+    text-align: center;
+
+
+{% block main %}
+        <h2>Payment closure</h2>
+    <br>
+      {% for row in rows %}
+        <p class="text-left">
+          Flat No : {{ row.flat }}
+        </p>
+        <p class="text-left">
+          Paid on : {{ row.datetime }}
+        </p>
+        <p class="text-left">
+          Month / Year : {{ row.month }}  /  {{ row.year }}
+        </p>
+        <p class="text-left">
+          Status : {{ row.status }}
+        </p>
+        <p class="text-left">
+          Mode : {{ row.mode }}
+        </p>
+        <p class="text-left">
+          Cheque/Ref No : {{ row.refno }}
+        </p>
+        <p class="text-left">
+          Amount: {{ inr(row.amount) }}
+        </p>
+        <br>
+    <div class="btn btn-default btn-block" >
+    <form action="/payment_close" method="POST" id="{{ row.datetime }}"></form>
+    <button class="btn btn-primary btn" type="submit" form="{{ row.datetime }}" name=name value="{{ row.datetime }}">Confirm payment
+    </div>
+    <div class="btn btn-default btn-block" >
+        <form action="/maintenance">
+        <button class="btn btn-secondary btn" type="submit">Cancel</button>
+    </form>
+    </div>
+      {% endfor %}
+
+{% endblock %}

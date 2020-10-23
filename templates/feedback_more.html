@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Suggestions / Complaint detail
+{% endblock %}
+
+    text-align: center;
+
+
+{% block main %}
+        <h2>Suggestion / Complaint detail</h2>
+    <br>
+      {% for row in rows %}
+        <p class="text-left">
+          Flat No : {{ row.flat }}
+        </p>
+        <p class="text-left">
+          Submitted on : {{ row.datetime }}
+        </p>
+        <p class="text-left font-weight-bold">
+          Subject : {{ row.subject }}
+        </p>
+        <p class="text-left">
+          Status : {{ row.status }}
+        </p>
+        <p class="text-left">
+          Comment: {{ row.feedback }}
+        </p>
+        <br>
+      {% endfor %}
+    <form action="/feedback">
+        <button class="btn btn-primary btn-lg" type="submit">Go back</button>
+    </form>
+
+{% endblock %}

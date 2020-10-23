@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Admin
+{% endblock %}
+
+{% block main %}
+        <h1>Administration committee</h1>
+        <table class="table">
+          <tr>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+          </tr>
+        {% for row in rows %}
+          <tr>
+            <td>{{ row.name }}</td>
+            <td>{{ row.number }}</td>
+            <td>{{ row.email }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+{% endblock %}

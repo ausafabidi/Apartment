@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Notice Board
+{% endblock %}
+
+{% block main %}
+        <h1>Notice Board</h1>
+    <br>
+        <table class="table">
+          <tr>
+            <th>Dated</th>
+            <th>Subject</th>
+            <th>Posted by</th>
+            <th>Status</th>
+          </tr>
+        {% for row in rows %}
+          <tr>
+            <td><form action="/notices_more" method="POST" id="{{ row.datetime }}"></form>
+<button class="btn btn-primary btn" type="submit" form="{{ row.datetime }}" name=name value="{{ row.datetime }}">{{ row.datetime }}</button></td>
+            <td>{{ row.subject }}</td>
+            <td>{{ row.name }}</td>
+            <td>{{ row.status }}</td>
+          </tr>
+        {% endfor %}
+        </table>
+
+{% endblock %}
